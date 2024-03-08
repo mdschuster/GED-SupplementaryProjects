@@ -557,3 +557,4 @@ $RECYCLE.BIN/
 
 !**/.keep
 !**/lib/
+!**/bin/
