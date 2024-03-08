@@ -24,8 +24,6 @@
 # Compiled Static libraries
 *.lai
 *.la
-*.a
-*.lib
 
 # Executables
 *.exe
@@ -53,8 +51,6 @@
 *.pch
 
 # Libraries
-*.lib
-*.a
 *.la
 *.lo
 
@@ -567,3 +563,4 @@ $RECYCLE.BIN/
 .nfs*
 
 !**/.keep
+!**/lib/
