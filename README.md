@@ -17,7 +17,7 @@ Each project contains two ways to build the executable:
 
 ### Notes:
 
-All libraries are statically linked, so the project executables should be portable.
+I have included the required static libraries for Mac and Windows. So, once compiled, the executables should be portable.
 
 **For Windows**, the Visual Studio `sln` file is located in the `visualstudio` directory. The projects have been properly configured to include all required libraries to create a 64-bit executable, which will be placed in the `bin` directory.
 
