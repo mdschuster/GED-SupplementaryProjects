@@ -30,8 +30,8 @@ LDLIBS= -L./${EXDIR}GLFW/lib -lglfw3x64mac
 LDFRAMEWORKS = -framework CoreVideo -framework IOKit -framework Cocoa
 endif
 else ifeq ($(uname_s),Linux)
-GLFWLIB=${EXLIBDIR}libglfwx64linux.a
-LDLIBS= -L./${EXLIBDIR} -lglfwx64linux
+GLFWLIB=${EXDIR}GLFW/lib/libglfw3x64linux.a
+LDLIBS= -L./${EXDIR}GLFW/lib -lglfw3x64linux -ldl
 LDFRAMEWORKS = 
 endif
 #using all of the above variables:
