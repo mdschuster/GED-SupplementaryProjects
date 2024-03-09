@@ -86,9 +86,6 @@ GLFWwindow* createWindow(){
     //!Window Creation
     //create the window using glfw
     GLFWwindow* window = glfwCreateWindow(800, 600, "OpenGL Window", NULL, NULL);
-    //for mac (and retina display), need to get the frame buffer size and width from glfw
-    int frameBufferHeight, frameBufferWidth;
-    glfwGetFramebufferSize(window, &frameBufferWidth, &frameBufferHeight);
     if (window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -96,6 +93,9 @@ GLFWwindow* createWindow(){
         return nullptr;
     }
 
+    //for mac (and retina display), need to get the frame buffer size and width from glfw
+    int frameBufferHeight, frameBufferWidth;
+    glfwGetFramebufferSize(window, &frameBufferWidth, &frameBufferHeight);
     glfwMakeContextCurrent(window);
 
 	//initalize GLAD
