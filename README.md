@@ -17,10 +17,10 @@ Each project contains two ways to build the executable:
 
 ### Notes:
 
-I have included the required static libraries for Mac and Windows. So, once compiled, the executables should be portable.
+I have included the required static libraries for Mac, Windows, and Linux. So, once compiled, the executables should be portable.
 
 **For Windows**, the Visual Studio `sln` file is located in the `visualstudio` directory. The projects have been properly configured to include all required libraries to create a 64-bit executable, which will be placed in the `bin` directory.
 
-**For Mac**, I have included raylib libraries for Arm, x86, and x86_64. The makefile will automatically determine the architecture and link as appropriate. The final executable will have a `.x` extension and be located in the `bin` directory.
+**For Mac**, I have included raylib libraries for Arm, x86, and x86_64. The makefiles will automatically determine the architecture and link as appropriate. The final executable will have a `.x` extension and be located in the `bin` directory.
 
-**For Linux**, I have not included the appropriate static libraries. The GLFW and raylib libraries will need to be added and properly linked. Upon successful compilation, the final executable will have a `.x` extension and be located in the `bin` directory.
+**For Linux**, I have included the appropriate static libraries (compiled in WSL using Ubuntu 20.04.6 LTS). The makefiles will automatically link the correct libraries. Upon successful compilation, the final executable will have a `.x` extension and be located in the `bin` directory.
