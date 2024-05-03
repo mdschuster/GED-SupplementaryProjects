@@ -23,7 +23,7 @@ int main(void)
    
     // Initialization
     //--------------------------------------------------------------------------------------
-
+    SetConfigFlags(FLAG_WINDOW_HIGHDPI);
     InitWindow(screenWidth, screenHeight, "Steering");
     
     //initialize the raylib ImGui backend
