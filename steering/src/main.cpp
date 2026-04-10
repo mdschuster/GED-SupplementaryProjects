@@ -1,7 +1,7 @@
-#include <include/raylib.h>
-#include <imgui/imgui.h>
-#include <imgui/rlImGui.h>
-#include <imgui/imgui_stdlib.h>
+#include <raylib.h>
+#include <imgui.h>
+#include <rlImGui.h>
+#include <imgui_stdlib.h>
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -26,7 +26,7 @@ int main(void)
    
     // Initialization
     //--------------------------------------------------------------------------------------
-
+    SetConfigFlags(FLAG_WINDOW_HIGHDPI);
     InitWindow(screenWidth, screenHeight, "Steering");
     
     //initialize the raylib ImGui backend

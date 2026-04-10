@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
-#include <include/raylib.h>
+#include <raylib.h>
 #include "vec2.hpp"
 
 struct Particle{

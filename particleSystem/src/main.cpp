@@ -1,7 +1,7 @@
-#include <include/raylib.h>
-#include <imgui/imgui.h>
-#include <imgui/rlImGui.h>
-#include <imgui/imgui_stdlib.h>
+#include <raylib.h>
+#include <imgui.h>
+#include <rlImGui.h>
+#include <imgui_stdlib.h>
 #include <string>
 #include <iostream>
 #include <memory>
@@ -24,7 +24,8 @@ int main(void)
     // Initialization
     //--------------------------------------------------------------------------------------
 
-    InitWindow(screenWidth, screenHeight, "Steering");
+    SetConfigFlags(FLAG_WINDOW_HIGHDPI);
+    InitWindow(screenWidth, screenHeight, "Particle");
     
     //initialize the raylib ImGui backend
     rlImGuiSetup(true);
@@ -37,7 +38,7 @@ int main(void)
     // variables
     //--------------------------------------------------------------------------------------
     bool pause=false;
-    bool attach=false;
+    bool attach=true;
     bool blue=false;
     bool red=true;
     bool green=false;
@@ -81,7 +82,7 @@ int main(void)
             ps.draw();
 
             //********** ImGUI Content *********
-            
+
             //Draw imgui stuff last so it is over the top of everything else
             rlImGuiBegin();
 
@@ -115,7 +116,7 @@ int main(void)
                     ps.position=Vec2(screenWidth/2,screenHeight/2);
                 }
 
-                    
+
                 ImGui::End();
 
             // end ImGui Content

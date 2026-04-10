@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#include "../include/raylib.h"
+#include "raylib.h"
 
 
 #define SCREEN_WIDTH 600
@@ -20,6 +20,7 @@ int main(void)
     const int screenWidth = SCREEN_WIDTH;
     const int screenHeight = SCREEN_HEIGHT;
 
+    SetConfigFlags(FLAG_WINDOW_HIGHDPI);
     InitWindow(screenWidth, screenHeight, "Shader Test");
 
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second

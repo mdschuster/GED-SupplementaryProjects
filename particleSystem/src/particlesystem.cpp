@@ -40,7 +40,7 @@ void ParticleSystem::resetParticles(int count, float size){
     }
 }
 
-void ParticleSystem::resetParticle(int index, std::string domColor,bool first){
+void ParticleSystem::resetParticle(int index, std::string domColor,bool first) {
     auto& p = particles[index];
 
     float x = position.x;
@@ -50,9 +50,18 @@ void ParticleSystem::resetParticle(int index, std::string domColor,bool first){
     p.lifetime=30+rand()%120;
     p.startLifeTime=p.lifetime;
     
-    if(domColor=="RED") p.color=Color((int)128+rand()%128,50,50,255);
-    if(domColor=="BLUE") p.color=Color(50,50,(int)128+rand()%128,255);
-    if(domColor=="GREEN") p.color=Color(50,(int)128+rand()%128,50,255);
+    if(domColor=="RED") {
+        unsigned char r=128+rand()%128;
+        p.color=Color{r,50,50,255};
+    }
+    if(domColor=="BLUE") {
+        unsigned char b=128+rand()%128;
+        p.color=Color{50,50,b,255};
+    }
+    if(domColor=="GREEN") {
+        unsigned char g=128+rand()%128;
+        p.color=Color{50,g,50,255};
+    }
     if(first) p.color.a=0;
 
     float rx=((float)rand()/RAND_MAX-0.5f)*5;
