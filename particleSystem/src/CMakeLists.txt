@@ -16,6 +16,10 @@ set_target_properties(particle PROPERTIES OUTPUT_NAME prog.x)
 target_link_libraries(particle PRIVATE imgui)
 target_link_libraries(particle PRIVATE raylib)
 
+if(PROFILING)
+    target_compile_definitions(particle PRIVATE PROFILING)
+endif()
+
 # Checks if OSX and links appropriate frameworks (only required on MacOS)
 #if (APPLE)
 #    target_link_libraries(${PROJECT_NAME} PRIVATE "-framework IOKit")
