@@ -39,11 +39,11 @@ int main(void)
     std::mt19937 mt(rd());
     std::uniform_real_distribution<float> dist(0, 1);
 
-    Physics physics(0.8f);
+    Physics physics(1.0f);
 
     std::vector<std::shared_ptr<Ball>> balls;
 
-    for (int i=0;i<10;i++) {
+    for (int i=0;i<20;i++) {
         float radius=25+dist(mt)*25;
         float x=dist(mt)*screenWidth;
         float y=dist(mt)*screenHeight;
@@ -59,7 +59,7 @@ int main(void)
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
-        Physics::deltaTime=0.016f;
+        Physics::deltaTime=GetFrameTime();
 
         // Draw
         //----------------------------------------------------------------------------------
