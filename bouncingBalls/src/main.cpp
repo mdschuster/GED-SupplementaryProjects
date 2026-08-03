@@ -39,17 +39,17 @@ int main(void)
     std::mt19937 mt(rd());
     std::uniform_real_distribution<float> dist(0, 1);
 
-    Physics physics(1.0f);
+    Physics physics(0.8f);
 
     std::vector<std::shared_ptr<Ball>> balls;
 
     for (int i=0;i<10;i++) {
-        float radius=50;//dist(mt)*50;
+        float radius=25+dist(mt)*25;
         float x=dist(mt)*screenWidth;
         float y=dist(mt)*screenHeight;
         float vx=(dist(mt)*2-1)*100;
         float vy=(dist(mt)*2-1)*100;
-        float mass=1.0f;
+        float mass=radius/50;
         auto ball = std::make_shared<Ball>(Vec2(x,y),Vec2(vx,vy),radius,mass,screenWidth,screenHeight);
         balls.push_back(ball);
     }
