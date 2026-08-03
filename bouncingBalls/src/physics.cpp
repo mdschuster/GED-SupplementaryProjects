@@ -34,8 +34,8 @@ void Physics::ballResolution(const Contact& c) {
     if (c.depth<0) return;
 
     //move by depth
-    c.a->pos-=c.normal*c.depth;
-    c.b->pos+=c.normal*c.depth;
+    c.a->pos-=c.normal*(c.depth*c.b->mass/(c.a->mass+c.b->mass));
+    c.b->pos+=c.normal*(c.depth*c.a->mass/(c.a->mass+c.b->mass));
 
     //compute impulse
     float invMass=1.0f/c.a->mass+1.0f/c.b->mass;
