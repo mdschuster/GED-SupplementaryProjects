@@ -43,8 +43,8 @@ int main(void)
 
     std::vector<std::shared_ptr<Ball>> balls;
 
-    for (int i=0;i<20;i++) {
-        float radius=25;//dist(mt)*50;
+    for (int i=0;i<10;i++) {
+        float radius=50;//dist(mt)*50;
         float x=dist(mt)*screenWidth;
         float y=dist(mt)*screenHeight;
         float vx=(dist(mt)*2-1)*100;
@@ -59,16 +59,29 @@ int main(void)
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
+        Physics::deltaTime=0.016f;
+
         // Draw
         //----------------------------------------------------------------------------------
         BeginDrawing();
-            Physics::deltaTime=GetFrameTime();
             //use black background
             ClearBackground(BLACK);
 
-            for (auto& b : balls) {
-                b->move();
-                b->draw();
+            for (auto& ball : balls) {
+                ball->move();
+            }
+
+            for (int i=0;i<balls.size();i++) {
+                auto& a=balls[i];
+                for (int j=i+1;j<balls.size();j++) {
+                    auto& b=balls[j];
+                    Contact c=physics.ballCollision(a,b);
+                    physics.ballResolution(c);
+                }
+            }
+
+            for (auto& ball : balls) {
+                ball->draw();
             }
 
             //draw fps at window pixel point (20,20)
