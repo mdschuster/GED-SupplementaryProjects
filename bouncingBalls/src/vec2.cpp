@@ -24,19 +24,32 @@ float Vec2::dot(const Vec2& v) const {
     return x*v.x+y*v.y;
 }
 
-Vec2 Vec2::operator+ (const Vec2& rhs) const {
-    return {this->x+rhs.x, this->y+rhs.y};
+bool Vec2::operator ==(const Vec2& rhs) const{
+    return (rhs.x==x && rhs.y==y);
 }
-
-Vec2 Vec2::operator- (const Vec2& rhs) const {
-    return {this->x-rhs.x, this->y-rhs.y};
+Vec2 Vec2::operator + (const Vec2& rhs) const{
+    return Vec2(x+rhs.x,y+rhs.y);
 }
-Vec2 Vec2::operator* (float value) const {
-    return {this->x*value, this->y*value};
+Vec2 Vec2::operator * (float value) const{
+    return Vec2(x*value,y*value);
 }
-
-Vec2 operator* (float lhs, const Vec2& rhs) {
-    return {rhs.x*lhs, rhs.y*lhs};
+void Vec2::operator +=(const Vec2& rhs){
+    x+=rhs.x;
+    y+=rhs.y;
+}
+Vec2 Vec2::operator -(const Vec2& rhs) const{
+    return Vec2(x-rhs.x, y-rhs.y);
+}
+void Vec2::operator -=(const Vec2& rhs){
+    x-=rhs.x;
+    y-=rhs.y;
+}
+float Vec2::operator *(const Vec2& rhs) const{
+    return x*rhs.x+y*rhs.y;
+}
+void Vec2::operator *=(const Vec2& rhs){
+    x=x*rhs.x;
+    y=y*rhs.y;
 }
 
 std::ostream& operator<< (std::ostream& os, const Vec2& rhs) {

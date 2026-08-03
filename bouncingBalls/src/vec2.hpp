@@ -14,9 +14,14 @@ public:
     void normalize();
     float dot(const Vec2& v) const;
 
-    Vec2 operator+ (const Vec2& rhs) const;
-    Vec2 operator- (const Vec2& rhs) const;
-    Vec2 operator* (float value) const;
+    bool operator ==(const Vec2& rhs) const;
+    Vec2 operator + (const Vec2& rhs) const;
+    Vec2 operator * (float value) const;
+    Vec2 operator -(const Vec2& rhs) const;
+    float operator *(const Vec2& rhs) const;
+    void operator +=(const Vec2& rhs);
+    void operator -=(const Vec2& rhs);
+    void operator *=(const Vec2& rhs);
 };
 
 Vec2 operator* (float lhs, const Vec2& rhs);
