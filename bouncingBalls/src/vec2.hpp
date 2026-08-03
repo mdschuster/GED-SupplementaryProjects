@@ -12,6 +12,7 @@ public:
     float length() const;
     float dist(const Vec2& v) const;
     void normalize();
+    float dot(const Vec2& v) const;
 
     Vec2 operator+ (const Vec2& rhs) const;
     Vec2 operator- (const Vec2& rhs) const;

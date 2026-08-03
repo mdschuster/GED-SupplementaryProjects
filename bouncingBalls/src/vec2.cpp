@@ -20,6 +20,10 @@ void Vec2::normalize() {
     y=y/len;
 }
 
+float Vec2::dot(const Vec2& v) const {
+    return x*v.x+y*v.y;
+}
+
 Vec2 Vec2::operator+ (const Vec2& rhs) const {
     return {this->x+rhs.x, this->y+rhs.y};
 }
