@@ -8,6 +8,8 @@
 #include <rlImGui.h>
 #include <imgui_stdlib.h>
 #include <iostream>
+#include <random>
+#include <vector>
 
 #include "vec2.hpp"
 #include "ball.hpp"
@@ -31,13 +33,26 @@ int main(void)
     rlImGuiSetup(true);
 
     // Set our game to run at 60 frames-per-second
-    SetTargetFPS(60);               
+    SetTargetFPS(60);
+
+    std::random_device rd;
+    std::mt19937 mt(rd());
+    std::uniform_real_distribution<float> dist(0, 1);
 
     Physics physics(1.0f);
 
+    std::vector<std::shared_ptr<Ball>> balls;
 
-    auto ballA=std::make_shared<Ball>(Vec2(200,200),Vec2(100,50),25.0f,1.0f,screenWidth,screenHeight);
-    auto ballB=std::make_shared<Ball>(Vec2(100,100),Vec2(-100,25),25.0f,1.0f,screenWidth,screenHeight);
+    for (int i=0;i<20;i++) {
+        float radius=25;//dist(mt)*50;
+        float x=dist(mt)*screenWidth;
+        float y=dist(mt)*screenHeight;
+        float vx=(dist(mt)*2-1)*100;
+        float vy=(dist(mt)*2-1)*100;
+        float mass=1.0f;
+        auto ball = std::make_shared<Ball>(Vec2(x,y),Vec2(vx,vy),radius,mass,screenWidth,screenHeight);
+        balls.push_back(ball);
+    }
 
     //--------------------------------------------------------------------------------------
 
@@ -51,10 +66,10 @@ int main(void)
             //use black background
             ClearBackground(BLACK);
 
-            ballA->move();
-            ballB->move();
-            ballA->draw();
-            ballB->draw();
+            for (auto& b : balls) {
+                b->move();
+                b->draw();
+            }
 
             //draw fps at window pixel point (20,20)
             DrawFPS(20, 20);
