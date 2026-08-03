@@ -17,7 +17,7 @@ public:
 
 class Physics {
 public:
-    inline static float gravity = 20.0f;
+    inline static float gravity = 50.0f;
     inline static float deltaTime=0.0f;
     float restitution;
 

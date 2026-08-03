@@ -10,7 +10,7 @@ public:
     float mass;
 
 
-    ball(Vec2 pos, float radius, float mass);
+    Ball(Vec2 pos, float radius, float mass);
     void move();
     void draw();
 

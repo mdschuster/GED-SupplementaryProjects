@@ -10,6 +10,8 @@
 #include <iostream>
 
 #include "vec2.hpp"
+#include "ball.hpp"
+#include "physics.hpp"
 
 //------------------------------------------------------------------------------------
 // Program main entry point
@@ -31,7 +33,10 @@ int main(void)
     // Set our game to run at 60 frames-per-second
     SetTargetFPS(60);               
 
-    //load the megaman texture using the relative path from the exe
+    Physics physics(1.0f);
+
+    auto ballA=std::make_shared<Ball>(Vec2(200,200),25.0f,1.0f);
+    auto ballB=std::make_shared<Ball>(Vec2(100,100),25.0f,1.0f);
 
     //--------------------------------------------------------------------------------------
 
@@ -41,8 +46,14 @@ int main(void)
         // Draw
         //----------------------------------------------------------------------------------
         BeginDrawing();
+            Physics::deltaTime=GetFrameTime();
             //use black background
             ClearBackground(BLACK);
+
+            ballA->move();
+            ballB->move();
+            ballA->draw();
+            ballB->draw();
 
             //draw fps at window pixel point (20,20)
             DrawFPS(20, 20);
