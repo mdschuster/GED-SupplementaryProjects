@@ -35,8 +35,9 @@ int main(void)
 
     Physics physics(1.0f);
 
-    auto ballA=std::make_shared<Ball>(Vec2(200,200),25.0f,1.0f);
-    auto ballB=std::make_shared<Ball>(Vec2(100,100),25.0f,1.0f);
+
+    auto ballA=std::make_shared<Ball>(Vec2(200,200),Vec2(100,50),25.0f,1.0f,screenWidth,screenHeight);
+    auto ballB=std::make_shared<Ball>(Vec2(100,100),Vec2(-100,25),25.0f,1.0f,screenWidth,screenHeight);
 
     //--------------------------------------------------------------------------------------
 

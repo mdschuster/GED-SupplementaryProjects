@@ -8,9 +8,11 @@ public:
     Vec2 vel;
     float radius;
     float mass;
+    int windowWidth;
+    int windowHeight;
 
 
-    Ball(Vec2 pos, float radius, float mass);
+    Ball(Vec2 pos, Vec2 vel,float radius, float mass, int windowWidth,int windowHeight);
     void move();
     void draw();
 
