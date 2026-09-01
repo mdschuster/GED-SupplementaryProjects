@@ -5,7 +5,7 @@ set(IMGUISRC
     imgui_tables.cpp
     imgui_widgets.cpp
     rlImGui.cpp
-    imgui_stdLib.cpp
+    imgui_stdlib.cpp
     imgui.cpp)
 add_library(imgui STATIC ${IMGUISRC})
 target_include_directories(imgui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

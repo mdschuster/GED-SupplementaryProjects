@@ -3,7 +3,7 @@ set(SOURCE_DIR "Source")
 set(SOURCES
         main.cpp
         vec2.cpp
-        Ball.cpp
+        ball.cpp
         physics.cpp
 )
 

@@ -59,4 +59,5 @@ std::shared_ptr<SteeringOutput> Align::getSteering(){
 
     //output steering
     steering->angularAccel=0.0f;
+    return steering;
 }

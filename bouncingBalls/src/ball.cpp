@@ -1,6 +1,7 @@
 #include "ball.hpp"
 #include "physics.hpp"
 
+#include <algorithm>
 #include "raylib.h"
 
 
